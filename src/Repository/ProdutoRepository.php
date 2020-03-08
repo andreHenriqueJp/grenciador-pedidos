@@ -52,6 +52,10 @@ class ProdutoRepository extends ServiceEntityRepository
         $em->merge($produto);
         $em->flush();
     }
+
+    public function ProdutoByCodigoBarra(Produto $codigoBarra){
+
+    }
     /*
     public function findOneBySomeField($value): ?Produto
     {

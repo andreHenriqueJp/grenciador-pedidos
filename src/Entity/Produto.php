@@ -29,7 +29,7 @@ class Produto
     private $descricao;
     /**
      * @var String_
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="codigo_barra", type="string")
      */
     private $codigoBarra;
     /**
