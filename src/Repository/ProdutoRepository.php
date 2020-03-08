@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Produto;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use http\Env\Request;
 
 /**
  * @method Produto|null find($id, $lockMode = null, $lockVersion = null)
@@ -34,7 +35,23 @@ class ProdutoRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function  saveProduto(Produto $produto){
+        $em = $this->getEntityManager();
+        $em->persist($produto);
+        $em->flush();
+    }
 
+    public function deleteProduto(Produto $id){
+        $em = $this->getEntityManager();
+        $em->remove($id);
+        $em->flush();
+    }
+
+    public function editProduto(Produto $produto){
+        $em = $this->getEntityManager();
+        $em->merge($produto);
+        $em->flush();
+    }
     /*
     public function findOneBySomeField($value): ?Produto
     {
