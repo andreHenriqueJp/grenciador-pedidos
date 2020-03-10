@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Produto;
 use App\Form\ProdutoType;
 use App\Repository\ProdutoRepository;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,5 +39,6 @@ class ProdutoControler extends AbstractController
 
         $dao = new ProdutoRepository();
         $dao->saveProduto($produto);
+        return new JsonResponse(['msg' => 'Empresa criada com sucesso!'], 200) ;
     }
 }
